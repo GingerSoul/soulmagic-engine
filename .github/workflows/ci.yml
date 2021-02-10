@@ -1,6 +1,6 @@
 name: Continuous Integration
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
     run:
@@ -18,9 +18,7 @@ jobs:
               node-version: ${{ matrix.node-version }}
 
           - name: Install JS Dependencies
-            uses: borales/actions-yarn@v2.0.0
-            with:
-              cmd: install
+            run: yarn install
 
           - name: Mocha
             run: node_modules/mocha/bin/mocha
