@@ -1,0 +1,25 @@
+name: Continuous Integration
+
+on: [push, pull_request]
+
+jobs:
+    run:
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            node-version: [ 10.x, 12.x, 14.x, 15.x ]
+        name: Node ${{ matrix.node-versions }}
+        steps:
+          - uses: actions/checkout@v2
+
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v1
+            with:
+              node-version: ${{ matrix.node-version }}
+
+          - name: Mocha
+            run: node_modules/mocha/bin/mocha
+
+          - name: Cypress
+            run: node_modules/mocha/bin/cypress run --record --key ${{secrets.CYPRESS_RUN_KEY}}
+
