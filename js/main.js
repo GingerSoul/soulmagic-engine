@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, document, window) {
   //  Create timeline groups on the tlgroups object.
   //  These groups will hold 'in' and 'out' timeline definitions and instances.
 
@@ -259,4 +259,4 @@
 
     $("body").removeClass("opacity-0");
   });
-})(jQuery);
+})(jQuery, document, window);
