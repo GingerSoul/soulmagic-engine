@@ -1,0 +1,12 @@
+[ignore]
+src/
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
