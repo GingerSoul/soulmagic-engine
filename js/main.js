@@ -246,7 +246,7 @@
 
   //doc ready
 
-  $(function () {
+  document.addEventListener('DOMContentLoaded', function () {
     createTimelineGroups();
     createTimelineInstances();
   });
