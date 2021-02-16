@@ -3,4 +3,7 @@
 /dist/
 /cypress/videos
 
+/.idea/workspace.xml
+
 /yarn-error.log
+
