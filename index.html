@@ -6,7 +6,7 @@
   <title>5. Declarative Project</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css'>
   <link rel='stylesheet' href='css/main.css'>
-  <link rel='stylesheet' href='css/type.css'>
+  <link rel='stylesheet' href='icss/type.css'>
 
   <!--   External Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -14,26 +14,33 @@
   <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
   <script src='https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js'></script>
 
-  <script src="js/main.js"></script>
+    <script src="dist/bundle.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            let app = SoulMagic.App.createFromDocument(document, 'smAnimate', gsap)
+            app.init()
+        });
+    </script>
 
 </head>
 
-<body class="opacity-0 transition transition-opacity duration-1000">
+<body class="transition transition-opacity duration-1000">
 
-  <!--   TEMPLATE CONTAINER -->
-  
-  <div id="templates">
-
-    <!-- dropdown template -->
-    <div tl="dropdown" tl-defs='{"template":"true","event":"click","clicker":"button"}'>
-      <div add-to-in-tl="dropdown" in-tl-targets="ul" in-tl-vars='{"duration":".5","autoAlpha":"1","ease":"power1","y":"20","rotation":"3","scale":"1.1"}'></div>
-      <div add-to-in-tl="dropdown" in-tl-targets="li" in-tl-vars='{"duration":".5","autoAlpha":"1","ease":"power1","x":"0"}'></div>
-      <div add-to-out-tl="dropdown" out-tl-targets="ul" out-tl-vars='{"duration":".5","autoAlpha":"0","ease":"power1","y":"0"}'></div>
-    </div>
-
-  </div>
+  <soulMagic>
+      <timeline name="dropdown">
+          <step duration=".5" autoAlpha="1" ease="power1"   y="20" rotation="3" scale="1.1" targets="ul" />
+          <step duration=".5" autoAlpha="1" ease="power1" x="0" targets="li .bright, span.red" />
+          <step duration=".5" autoAlpha="0" ease="power1" y="0" targets="ul" />
+      </timeline>
+  </soulMagic>
 
   <!--   HOLY GRAIL -->
+
+  <div smAnimate="(.popbutton) click:dropdown" style="background: red; width: 100px; height: 100px">
+        <ul>
+            <li>Hi!</li>
+        </ul>
+  </div>
 
   <div class="relative max-w-screen-xl mx-auto bg-black text-white p-4 flex justify-between border-b border-white">
 

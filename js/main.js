@@ -138,7 +138,7 @@
           
           //click event
           $clicker = window.tls[thisName].defs.$trigger.find((window.tls[thisName].defs.clicker));
-            console.log($clicker);
+            // console.log($clicker);
           $clicker.click(function () {
             alert("click!");
           });
@@ -153,15 +153,15 @@
         
         // tl is a template, creating events on children
         
-        console.log(99);
+        // console.log(99);
         window.tls[thisName].children.forEach(function (item, index) {
-          console.log(item);
+          // console.log(item);
           item.inTl.event = function () {
 
             //click event
 
             $clicker = item.defs.$trigger.find(item.defs.clicker);
-            console.log($clicker);
+            // console.log($clicker);
             $clicker.click(function () {
               //alert("click!" + index);
               item.inTl.instance.play();
