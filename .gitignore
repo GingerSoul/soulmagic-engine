@@ -3,4 +3,4 @@
 /dist/
 /cypress/videos
 
-/.yarn-error.log
+/yarn-error.log
