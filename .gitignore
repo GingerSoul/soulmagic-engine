@@ -2,3 +2,5 @@
 /.env
 /dist/
 /cypress/videos
+
+/.yarn-error.log
