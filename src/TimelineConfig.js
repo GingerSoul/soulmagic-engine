@@ -1,5 +1,8 @@
 // @flow
+
+import type {StepConfig} from "./StepConfig";
+
 export type TimelineConfig = {
-    one: number,
-    two: string,
+  steps: StepConfig[],
+
 }

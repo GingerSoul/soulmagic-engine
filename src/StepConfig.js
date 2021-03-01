@@ -1,0 +1,38 @@
+// @flow
+
+export type StepConfig = {
+  targets: string[],
+  // Special GS properties
+  callbackScope: ?string,
+  data: ?mixed,
+  delay: ?number,
+  duration: ?number,
+  ease: ?string,
+  id: ?string,
+  immediateRender: ?boolean,
+  inherit: ?boolean,
+  lazy: ?boolean,
+  onComplete: ?(...mixed) => void,
+  onCompleteParams: ?[],
+  onRepeat: ?(...mixed) => void,
+  onRepeatParams: ?[],
+  onReverseComplete: ?(...mixed) => void,
+  onReverseCompleteParams: ?[],
+  onStart: ?(...mixed) => void,
+  onStartParams: ?[],
+  onUpdate: ?(...mixed) => void,
+  onUpdateParams: ?[],
+  overwrite: ?boolean | "auto",
+  paused: ?boolean,
+  repeat: ?number,
+  repeatDelay: ?number,
+  repeatRefresh: ?boolean,
+  reversed: ?boolean,
+  runBackwards: ?boolean,
+  stagger: ?number,
+  startAt: ?{},
+  yoyo: ?boolean,
+  yoyoEase: ?string | boolean,
+  keyframes: ?[{}],
+  ... // Properties to animate
+}

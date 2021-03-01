@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5. Declarative Project</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css'>
+  <link rel='stylesheet' href='css/main.css'>
+  <link rel='stylesheet' href='icss/type.css'>
+
+  <!--   External Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src='https://unpkg.co/gsap@3/dist/gsap.js'></script>
+  <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+  <script src='https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js'></script>
+
+    <script src="dist/bundle.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            let app = SoulMagic.App.createFromDocument(document, 'smAnimate', gsap)
+            app.init()
+        });
+    </script>
+
+    <style type="text/css">
+        #menu li {
+            display: inline-block;
+        }
+        #menu li li {
+            display: block;
+        }
+
+        #menu ul ul {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="transition transition-opacity duration-1000">
+<soulMagic>
+    <timeline name="dropdown1">
+        <step duration=".5" autoAlpha="1" ease="power1" y="20" rotation="40" scale="1.1" targets="ul" />
+        <step duration=".5" autoAlpha="1" ease="power1" x="0" targets="li .bright, span.red" />
+        <step duration=".5" autoAlpha="0" ease="power1" y="0" targets="ul" />
+    </timeline>
+</soulMagic>
+
+  <soulMagic>
+
+      <component name="menu">
+          <subset targets="> ul"  />
+      </component>
+
+      <component name="dropdown" type="dropdown">
+          <timeline ref="dropdown1">
+          <handle event="stateChange"></handle>
+      </component>
+
+      <component type="scroll">
+          <timeline ref="parallax-text">
+              <step rotation="40" />
+          </timeline>
+      </component>
+  </soulMagic>
+
+  <!--   HOLY GRAIL -->
+
+  <div smAnimate="dropdown" style="background: red; width: 100px; height: 100px">
+      <ul>
+          <li>Hi!</li>
+          <li><span class="bright">two</span></li>
+          <li><span class="red">three</span></li>
+      </ul>
+  </div>
+
+  <div smAnimate="menu" id="menu">
+      <ul>
+          <li>
+              One
+              <ul>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+              </ul>
+          </li>
+          <li>
+              Five
+              <ul>
+                  <li>Six</li>
+                  <li>Seven</li>
+                  <li>Eight</li>
+              </ul>
+          </li>
+          <li>
+              Nine
+              <ul>
+                  <li>Ten</li>
+                  <li>Eleven</li>
+                  <li>Twelve</li>
+              </ul>
+          </li>
+      </ul>
+  </div>
+
+  <div class="relative max-w-screen-xl mx-auto bg-black text-white p-4 flex justify-between border-b border-white">
+
+    <div class="w-5/12">
+      <a href="#" class="inline-block p-4 border">Logo</a>
+    </div>
+
+    <div class="plugins-dropdown bg-red-900 p-2" use-tl="dropdown">
+
+      <button class="popbutton block p-4 border">Plugins</button>
+
+      <ul class="absolute right-4 bg-white text-black rounded-lg shadow-lg py-2 mt-2 w-48" set-alpha="0">
+
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">Soulsections</a></li>
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">SoulMagic</a></li>
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">SoulType</a></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- END HOLY GRAIL -->
+
+  
+    <!--   HOLY GRAIL -->
+
+  <div class="relative max-w-screen-xl mx-auto bg-black text-white p-4 flex justify-between border-b border-white">
+
+    <div class="w-5/12">
+      <a href="#" class="inline-block p-4 border">Logo</a>
+    </div>
+
+    <div class="plugins-dropdown bg-red-900 p-2" use-tl="dropdown">
+
+      <button class="popbutton block p-4 border">Plugins</button>
+
+      <ul class="absolute right-4 bg-white text-black rounded-lg shadow-lg py-2 mt-2 w-48" set-alpha="0">
+
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">Soulsections</a></li>
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">SoulMagic</a></li>
+        <li class="px-4 py-2 transform translate-x-10" set-alpha="01"><a href="#0">SoulType</a></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- END HOLY GRAIL -->
+
+</body>
+
+</html>

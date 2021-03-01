@@ -1,4 +1,5 @@
 module.exports = {
+  devtool: 'source-map',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -18,11 +19,15 @@ module.exports = {
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-syntax-import-meta',
               ['@babel/plugin-proposal-class-properties', {'loose': false}],
-              '@babel/plugin-proposal-json-strings'
+              '@babel/plugin-proposal-json-strings',
+              '@babel/plugin-proposal-export-default-from'
             ],
           },
         }
       }
     ]
+  },
+  optimization: {
+    minimize: false
   }
 };
